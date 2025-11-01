@@ -6,9 +6,6 @@ import time
 import datetime    
 import webbrowser  
 
-# --- 1. Setup Voice and Speech Engines ---
-
-
 recognizer = sr.Recognizer()
 
 def speak(text):
@@ -38,17 +35,11 @@ def listen_for_command():
         print("Sorry, my speech service is currently down.")
         return None
 
-# --- 3. Main Assistant Loop ---
-
 speak("Hello! I'm online and ready to help.")
-
 while True:
     command = listen_for_command()
-
-    if command is None:
+  if command is None:
         continue
-
-    # --- 4. Define Your Commands (The fun part!) ---
     
     if "hello" in command:
         speak("Hello! How can I help you?")
@@ -69,18 +60,15 @@ while True:
 
     elif "what time is it" in command:
         now = datetime.datetime.now()
-        current_time = now.strftime("%I:%M %p") # e.g., "10:04 PM"
+        current_time = now.strftime("%I:%M %p") 
         speak(f"The current time is {current_time}")
 
-    # --- THIS WHOLE BLOCK IS NEW ---
     elif "what's the date" in command or "what is the date" in command:
         now = datetime.datetime.now()
-        # This formats the date as "Saturday, November 01, 2025"
         current_date = now.strftime("%A, %B %d, %Y")
         speak(f"Today is {current_date}")
    
-
-    elif "open chrome" in command:
+  elif "open chrome" in command:
         speak("Opening Google Chrome.")
         chrome_path = "C:/Program Files/Google/Chrome/Application/chrome.exe"
         try:
@@ -111,8 +99,6 @@ while True:
     elif "goodbye" in command or "exit" in command or "stop" in command:
         speak("Goodbye! Shutting down.")
         break  
-    
-    else:
+      else:
         if command:
-
-            speak("I'm not sure how to do that yet.")
+  speak("I'm not sure how to do that yet.")
