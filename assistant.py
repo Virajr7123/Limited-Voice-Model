@@ -1,14 +1,14 @@
 import speech_recognition as sr
 import pyttsx3
-import subprocess  # For opening applications
-import pyautogui   # For controlling mouse and keyboard
-import time        # For adding pauses
-import datetime    # For telling the time and date
-import webbrowser  # For Google search
+import subprocess  
+import pyautogui   
+import time        
+import datetime    
+import webbrowser  
 
 # --- 1. Setup Voice and Speech Engines ---
 
-# Initialize the recognizer (for listening)
+
 recognizer = sr.Recognizer()
 
 def speak(text):
@@ -56,7 +56,7 @@ while True:
     elif "open notepad" in command:
         speak("Sure, opening Notepad for you.")
         subprocess.Popen(['notepad.exe'])
-        time.sleep(1)  # Wait for the window to get focus
+        time.sleep(1)  
 
     elif "type this" in command:
         speak("Okay, what should I type?")
@@ -78,14 +78,14 @@ while True:
         # This formats the date as "Saturday, November 01, 2025"
         current_date = now.strftime("%A, %B %d, %Y")
         speak(f"Today is {current_date}")
-    # --- END OF NEW BLOCK ---
+   
 
     elif "open chrome" in command:
         speak("Opening Google Chrome.")
         chrome_path = "C:/Program Files/Google/Chrome/Application/chrome.exe"
         try:
             subprocess.Popen([chrome_path])
-            time.sleep(1)  # Wait for the window to get focus
+            time.sleep(1)  
         except FileNotFoundError:
             speak("Sorry, I can't find Google Chrome at that path.")
             speak("Please check the chrome_path variable in the code.")
@@ -114,4 +114,5 @@ while True:
     
     else:
         if command:
+
             speak("I'm not sure how to do that yet.")
